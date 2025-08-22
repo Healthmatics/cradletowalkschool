@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cradle to Walk School - Nurturing Young Minds</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#dc2626'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .hero-bg {
+            background-image: url('images/1.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .slide-animation {
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+   <!-- Header -->
+<header class="bg-white shadow-lg fixed w-full top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+  <!-- Logo Image -->
+  <img src="https://lh3.googleusercontent.com/p/AF1QipOHude2RoEjgK3T0ssMmO6Q042gBKju-atF4L9C=s680-w680-h510-rw" alt="Cradle to Walk School Logo" class="h-10 w-auto">
+  
+  <!-- School Name -->
+  <h1 class="text-2xl font-bold text-primary">Cradle to Walk School</h1>
+</div>
+
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="#home" class="text-gray-700 hover:text-primary transition-colors">Home</a>
+        <a href="#about" class="text-gray-700 hover:text-primary transition-colors">About Us</a>
+        <a href="#admissions" class="text-gray-700 hover:text-primary transition-colors">Admissions</a>
+        <a href="#gallery" class="text-gray-700 hover:text-primary transition-colors">Gallery</a>
+        <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right Side -->
+      <div class="flex items-center space-x-4">
+        <!-- Phone (hidden on small) -->
+        <div class="hidden md:flex items-center text-primary">
+          <div class="w-5 h-5 flex items-center justify-center mr-2">
+            <i class="ri-phone-line"></i>
+          </div>
+          <span class="font-semibold">054 975 0130</span>
+        </div>
+
+        <!-- Hamburger (mobile only) -->
+        <button id="menu-btn" class="md:hidden w-8 h-8 flex items-center justify-center">
+          <i class="ri-menu-line text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+    <nav class="flex flex-col space-y-4 p-6">
+      <a href="#home" class="text-gray-700 hover:text-primary transition-colors">Home</a>
+      <a href="#about" class="text-gray-700 hover:text-primary transition-colors">About Us</a>
+      <a href="#admissions" class="text-gray-700 hover:text-primary transition-colors">Admissions</a>
+      <a href="#gallery" class="text-gray-700 hover:text-primary transition-colors">Gallery</a>
+      <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+      <div class="flex items-center text-primary pt-4 border-t">
+        <div class="w-5 h-5 flex items-center justify-center mr-2">
+          <i class="ri-phone-line"></i>
+        </div>
+        <span class="font-semibold">054 975 0130</span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- JS for Toggle -->
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
+<!-- Floating WhatsApp Button with Pre-filled Message -->
+<a href="https://wa.me/233549750130?text=Hello%2C%20I%27d%20like%20to%20know%20more%20about%20your%20school" 
+   class="fixed bottom-6 right-6 bg-green-500 rounded-full shadow-lg p-4 z-50 hover:bg-green-600 transition-colors"
+   target="_blank" 
+   aria-label="Chat on WhatsApp">
+   <!-- WhatsApp Icon (SVG) -->
+   <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+     <path d="M20.52 3.48A11.85 11.85 0 0 0 12 .1C5.41.1.1 5.41.1 12c0 2.11.55 4.18 1.61 6L0 24l6.16-1.66A11.9 11.9 0 0 0 12 23.9c6.59 0 11.9-5.31 11.9-11.9 0-3.17-1.23-6.16-3.48-8.52zM12 21.5c-1.82 0-3.59-.49-5.14-1.42l-.37-.22-3.65.99.98-3.56-.24-.37A9.47 9.47 0 0 1 2.5 12c0-5.24 4.26-9.5 9.5-9.5 2.54 0 4.93.99 6.73 2.77A9.46 9.46 0 0 1 21.5 12c0 5.24-4.26 9.5-9.5 9.5zm5.2-7.09c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.95 1.15-.18.2-.35.22-.64.07-.29-.15-1.23-.45-2.34-1.42-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.6.14-.14.29-.35.44-.52.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.87 1.22 3.07c.15.2 2.1 3.22 5.08 4.52.71.31 1.27.5 1.7.64.71.22 1.35.19 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.68.24-1.27.17-1.38-.07-.12-.26-.19-.55-.34z"/>
+   </svg>
+</a>
+
+    <!-- Hero Section -->
+    <!-- Hero Section with 10 Image Slider -->
+<section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+  <!-- Slider Container -->
+  <div class="absolute inset-0">
+    <div class="slider relative w-full h-full">
+      <!-- Slides -->
+      <div class="slide active" style="background-image: url('img1.jpg');"></div>
+      <div class="slide" style="background-image: url('images/1.jpeg');"></div>
+      <div class="slide" style="background-image: url('images/2.jpeg');"></div>
+      <div class="slide" style="background-image: url('images/3.jpeg');"></div>
+      <div class="slide" style="background-image: url('images/4.jpeg');"></div>
+      <div class="slide" style="background-image: url('images/5.jpeg');"></div>
+      <div class="slide" style="background-image: url('https://lh3.googleusercontent.com/p/AF1QipPZS09KSpPzeFf3RnfsaybrDVbQJZp8hghYR5Yn=s680-w680-h510-rw');"></div>
+      <div class="slide" style="background-image: url('https://lh3.googleusercontent.com/p/AF1QipMCPpbikdkeAVhpozA1A7ZzG5Rto74xNh2ThJ65=s680-w680-h510-rw');"></div>
+      <div class="slide" style="background-image: url('https://lh3.googleusercontent.com/gps-cs-s/AC9h4nraRlODwsrlUmzPltO5RYkIjKOVfyy89aP06hI3w-r_-uBkCbW-KYh6_5pU2lv9g3IeKAbDgEs4mZdHyL9It61Hz_7O8UUzYrEhobGKjxD_SYaSkg15-4fy_0wu8ioXwnpF7WBI=s680-w680-h510-rw');"></div>
+      <div class="slide" style="background-image: url('images/6.jpeg');"></div>
+    </div>
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center text-white slide-animation">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6">Welcome to<br>Cradle to Walk School</h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+        Nurturing young minds with love, care, and quality education in a safe and stimulating environment
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+  <!-- Enroll Now -->
+  <a href="https://wa.me/233549750130?text=Hello%2C%20I%20want%20to%20enroll%20my%20child%20at%20Cradle%20to%20Walk%20School" target="_blank">
+    <button class="bg-secondary hover:bg-red-700 text-white px-8 py-4 !rounded-button text-lg font-semibold transition-colors whitespace-nowrap">
+      Enroll Now
+    </button>
+  </a>
+
+  <!-- Contact Us -->
+  <a href="https://wa.me/233549750130?text=Hello%2C%20I%20would%20like%20to%20make%20enquiries%20about%20Cradle%20to%20Walk%20School" target="_blank">
+    <button class="bg-white hover:bg-gray-100 text-primary px-8 py-4 !rounded-button text-lg font-semibold transition-colors whitespace-nowrap">
+      Contact Us
+    </button>
+  </a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+  .slide.active {
+    opacity: 1;
+  }
+</style>
+
+<!-- JS -->
+<script>
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  function changeSlide() {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
+  }
+
+  setInterval(changeSlide, 4000); // Change every 4 seconds
+</script>
+
+        
+        <!-- Floating Alphabet Bubbles -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="bubble w-12 h-12 bg-red-400 flex items-center justify-center text-white font-bold text-xl" style="left: 10%; top: 20%; animation-delay: 0s;">A</div>
+            <div class="bubble w-10 h-10 bg-blue-400 flex items-center justify-center text-white font-bold text-lg" style="left: 80%; top: 30%; animation-delay: 1s;">B</div>
+            <div class="bubble w-14 h-14 bg-green-400 flex items-center justify-center text-white font-bold text-xl" style="left: 20%; top: 70%; animation-delay: 2s;">C</div>
+            <div class="bubble w-11 h-11 bg-yellow-400 flex items-center justify-center text-white font-bold text-lg" style="left: 70%; top: 60%; animation-delay: 3s;">D</div>
+            <div class="bubble w-13 h-13 bg-purple-400 flex items-center justify-center text-white font-bold text-xl" style="left: 50%; top: 80%; animation-delay: 4s;">E</div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">About Cradle to Walk School</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We are dedicated to providing exceptional early childhood education in a nurturing and stimulating environment</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold text-primary mb-6">Who We Are</h3>
+                    <p class="text-lg text-gray-700 mb-6">Cradle to Walk School is a premier early childhood education center located in Amrahia. We specialize in providing quality education and care for children from infancy through kindergarten age.</p>
+                    <p class="text-lg text-gray-700 mb-6">Our experienced team of educators and supervisors create a safe, loving, and stimulating environment where children can explore, learn, and grow at their own pace.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="ri-graduation-cap-line text-white text-xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-primary">Quality Education</h4>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                            <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="ri-heart-line text-white text-xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-primary">Loving Care</h4>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/11.jpeg" alt="Our School Environment" class="rounded-2xl shadow-lg object-cover w-full h-96">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-white rounded-2xl shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="ri-eye-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Our Vision</h3>
+                    <p class="text-gray-700">To be the leading early childhood education center that nurtures confident, creative, and capable young learners ready for their educational journey.</p>
+                </div>
+                <div class="text-center p-8 bg-white rounded-2xl shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="ri-target-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Our Mission</h3>
+                    <p class="text-gray-700">To provide quality early childhood education through play-based learning, fostering social, emotional, cognitive, and physical development in a safe environment.</p>
+                </div>
+                <div class="text-center p-8 bg-white rounded-2xl shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="ri-star-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Our Values</h3>
+                    <p class="text-gray-700">Love, respect, integrity, excellence, and inclusivity guide everything we do. We believe every child is unique and deserves individualized attention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Our Programs</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive early childhood education programs designed for different age groups and developmental stages</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <img src="images/11.jpeg" alt="Creche Program" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-primary mb-3">Creche</h3>
+                        <p class="text-gray-600 mb-3">Ages: 6 months - 18 months</p>
+                        <p class="text-gray-700 mb-4">Gentle care and early stimulation for our youngest learners. Focus on sensory development, basic motor skills, and establishing routines in a loving environment.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Personalized feeding schedules</li>
+                            <li>• Sensory play activities</li>
+                            <li>• Safe sleep environments</li>
+                            <li>• Early language exposure</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <img src="images/n1.jpeg" alt="Nursery 1 Program" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-primary mb-3">Nursery 1</h3>
+                        <p class="text-gray-600 mb-3">Ages: 18 months - 2.5 years</p>
+                        <p class="text-gray-700 mb-4">Introduction to structured learning through play. Development of social skills, basic communication, and independence in a supportive setting.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Potty training support</li>
+                            <li>• Basic vocabulary building</li>
+                            <li>• Social interaction skills</li>
+                            <li>• Creative arts and crafts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <img src="images/n2.jpeg" alt="Nursery 2 Program" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-primary mb-3">Nursery 2</h3>
+                        <p class="text-gray-600 mb-3">Ages: 2.5 - 3.5 years</p>
+                        <p class="text-gray-700 mb-4">Enhanced learning experiences with focus on language development, pre-math concepts, and social-emotional growth through guided activities.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Pre-literacy activities</li>
+                            <li>• Number recognition</li>
+                            <li>• Group play and sharing</li>
+                            <li>• Fine motor development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <img src="images/2.jpeg" alt="KG1 Program" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-primary mb-3">KG1</h3>
+                        <p class="text-gray-600 mb-3">Ages: 3.5 - 4.5 years</p>
+                        <p class="text-gray-700 mb-4">Structured pre-school curriculum preparing children for formal education. Focus on alphabet recognition, basic math, and school readiness skills.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Alphabet and phonics</li>
+                            <li>• Basic counting and shapes</li>
+                            <li>• Following instructions</li>
+                            <li>• Science exploration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <img src="images/1.jpeg" alt="KG2 Program" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-primary mb-3">KG2</h3>
+                        <p class="text-gray-600 mb-3">Ages: 4.5 - 6 years</p>
+                        <p class="text-gray-700 mb-4">Advanced kindergarten program ensuring complete school readiness. Comprehensive curriculum covering reading, writing, mathematics, and critical thinking skills.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Reading and writing</li>
+                            <li>• Advanced mathematics</li>
+                            <li>• Problem-solving skills</li>
+                            <li>• Primary school preparation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-primary text-white rounded-2xl p-8 flex flex-col justify-center items-center text-center">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4">
+                        <i class="ri-question-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Need Help Choosing?</h3>
+                    <p class="mb-6">Our experienced staff can help you select the perfect program for your child's developmental needs.</p>
+                    <a href="https://wa.me/233547642937?text=Hello%20Cradle%20to%20Walk%20School%2C%20I%20would%20like%20to%20make%20enquiries" target="_blank">
+  <button class="bg-secondary hover:bg-red-700 text-white px-6 py-3 !rounded-button font-semibold transition-colors whitespace-nowrap">
+    Contact Us Today
+  </button>
+</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Admissions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Join our school family and give your child the best start in their educational journey</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+                        <h3 class="text-2xl font-bold text-primary mb-6">Admission Requirements</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
+                                    <i class="ri-check-line text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Birth Certificate</h4>
+                                    <p class="text-gray-600">Original and photocopy of child's birth certificate</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
+                                    <i class="ri-check-line text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Medical Records</h4>
+                                    <p class="text-gray-600">Up-to-date immunization records and health certificate</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
+                                    <i class="ri-check-line text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Parent/Guardian ID</h4>
+                                    <p class="text-gray-600">Valid identification of parent or guardian</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
+                                    <i class="ri-check-line text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Passport Photos</h4>
+                                    <p class="text-gray-600">Recent passport-size photographs of the child</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary mb-6">How to Apply</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold">1</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Visit Our School</h4>
+                                    <p class="text-gray-600 text-sm">Schedule a tour to see our facilities</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold">2</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Complete Application</h4>
+                                    <p class="text-gray-600 text-sm">Fill out the admission form</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold">3</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Submit Documents</h4>
+                                    <p class="text-gray-600 text-sm">Provide all required documents</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                            <a href="https://wa.me/233549750130?text=Hello%2C%20I%27d%20like%20to%20apply%20online%20for%20Cradle%20to%20Walk%20School" target="_blank">
+  <button class="bg-primary hover:bg-blue-700 text-white px-6 py-3 !rounded-button font-semibold transition-colors whitespace-nowrap">
+    Apply Online
+  </button>
+</a>
+
+                            <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-3 !rounded-button font-semibold transition-colors whitespace-nowrap">
+                                Download PDF Form
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Contact Form</h3>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Parent/Guardian Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter your full name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter phone number">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter email address">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Child's Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter child's name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Child's Age</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Enter child's age">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Program of Interest</label>
+                            <div class="relative">
+                                <button type="button" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm text-left bg-white pr-8">
+                                    Select a program
+                                </button>
+                                <div class="w-5 h-5 absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center justify-center">
+                                    <i class="ri-arrow-down-s-line text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Tell us more about your child or any questions you have"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-secondary hover:bg-red-700 text-white py-3 !rounded-button font-semibold transition-colors whitespace-nowrap">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Gallery</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Take a look at our beautiful facilities and happy children in action</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipPZS09KSpPzeFf3RnfsaybrDVbQJZp8hghYR5Yn=s680-w680-h510-rw" alt="Playground Activities" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <i class="ri-eye-line text-primary text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipMMm2b8F7qWy00DPrMq8UTRFmjP6Ty1IN1mEFMZ=s680-w680-h510-rw" alt="Art & Craft Time" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <i class="ri-eye-line text-primary text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipMCPpbikdkeAVhpozA1A7ZzG5Rto74xNh2ThJ65=s680-w680-h510-rw" alt="Story Time" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <i class="ri-eye-line text-primary text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="images/WhatsApp Image 2025-08-21 at 10.47.15.jpeg" alt="Music & Movement" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <i class="ri-eye-line text-primary text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="images/WhatsApp Image 2025-08-21 at 10.47.18.jpeg" alt="Meal Time" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <i class="ri-eye-line text-primary text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="images/WhatsApp Image 2025-08-21 at 10.47.16 (1).jpeg" alt="Science Discovery" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <i class="ri-eye-line text-primary text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Contact Us</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Get in touch with us to learn more about our programs or schedule a visit</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+                        <h3 class="text-2xl font-bold text-primary mb-6">Get In Touch</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                                    <i class="ri-map-pin-line text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Address</h4>
+                                    <p class="text-gray-600">QV9F+QMV, Amrahia<br>Greater Accra Region, Ghana</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
+                                    <i class="ri-phone-line text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Phone</h4>
+                                    <p class="text-gray-600">054 975 0130</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                    <i class="ri-time-line text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">School Hours</h4>
+                                    <p class="text-gray-600">Monday - Friday: 7:00 AM - 5:00 PM<br>Saturday: 8:00 AM - 2:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Map Section -->
+<div class="h-96 relative">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.6077656292778!2d-0.1304118317365892!3d5.769440318705061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf79853b2e2d7b%3A0x20087a45a8ce38e9!2sCradle%20to%20Walk%20School!5e0!3m2!1sen!2sgh!4v1755819325892!5m2!1sen!2sgh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    width="100%"
+    height="100%"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="absolute top-4 left-4 bg-white rounded-lg p-3 shadow-lg">
+                            <div class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center">
+                                <i class="ri-map-pin-line text-white text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Visit Our School</h3>
+                        <p class="text-gray-600 mb-4">We welcome parents to visit our facilities and meet our dedicated staff. Schedule a tour to see why Cradle to Walk School is the perfect choice for your child.</p>
+                        <button class="bg-primary hover:bg-blue-700 text-white px-6 py-3 !rounded-button font-semibold transition-colors whitespace-nowrap">
+                            Schedule a Visit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16 relative overflow-hidden">
+        
+            <div class="border-t border-blue-800 mt-12 pt-8 text-center text-blue-50">
+                <p>&copy; 2025 Cradle to Walk School. All rights reserved. Designed & Developed By RashlynGraphics | 0547642937</p>
+            </div>
+        
+        <!-- Footer Bubbles -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="bubble w-8 h-8 bg-white bg-opacity-10 flex items-center justify-center text-white font-bold text-sm" style="left: 15%; bottom: 10%; animation-delay: 0s;">F</div>
+            <div class="bubble w-6 h-6 bg-white bg-opacity-10 flex items-center justify-center text-white font-bold text-xs" style="left: 85%; bottom: 20%; animation-delay: 1s;">G</div>
+            <div class="bubble w-10 h-10 bg-white bg-opacity-10 flex items-center justify-center text-white font-bold text-sm" style="left: 25%; bottom: 30%; animation-delay: 2s;">H</div>
+            <div class="bubble w-7 h-7 bg-white bg-opacity-10 flex items-center justify-center text-white font-bold text-xs" style="left: 75%; bottom: 40%; animation-delay: 3s;">I</div>
+        </div>
+    </footer>
+
+    <script id="navigation-scroll">
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('shadow-xl');
+                } else {
+                    header.classList.remove('shadow-xl');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="form-interactions">
+        document.addEventListener('DOMContentLoaded', function() {
+            const forms = document.querySelectorAll('form');
+            const programSelector = document.querySelector('button[type="button"]');
+            
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your interest! We will contact you soon.');
+                });
+            });
+            
+            if (programSelector) {
+                programSelector.addEventListener('click', function() {
+                    const programs = ['Creche (6-18 months)', 'Nursery 1 (18 months - 2.5 years)', 'Nursery 2 (2.5 - 3.5 years)', 'KG1 (3.5 - 4.5 years)', 'KG2 (4.5 - 6 years)'];
+                    const selectedProgram = programs[Math.floor(Math.random() * programs.length)];
+                    this.textContent = selectedProgram;
+                });
+            }
+        });
+    </script>
+
+    <script id="cta-buttons">
+        document.addEventListener('DOMContentLoaded', function() {
+            const enrollButtons = document.querySelectorAll('button:contains("Enroll Now"), button:contains("Apply Online")');
+            const contactButtons = document.querySelectorAll('button:contains("Contact Us"), button:contains("Contact Us Today"), button:contains("Schedule a Visit")');
+            
+            enrollButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelector('#admissions').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            contactButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+
+    <script id="gallery-interactions">
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryImages = document.querySelectorAll('#gallery img');
+            
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    const overlay = document.createElement('div');
+                    overlay.className = 'fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50';
+                    overlay.innerHTML = `
+                        <div class="relative max-w-4xl max-h-full p-4">
+                            <img src="${this.src}" alt="${this.alt}" class="max-w-full max-h-full object-contain rounded-lg">
+                            <button class="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                                <i class="ri-close-line text-xl"></i>
+                            </button>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(overlay);
+                    
+                    overlay.addEventListener('click', function(e) {
+                        if (e.target === overlay || e.target.closest('button')) {
+                            document.body.removeChild(overlay);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+<script>
+    !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+    posthog.init('phc_t9tkQZJiyi2ps9zUYm8TDsL6qXo4YmZx0Ot5rBlAlEd', {
+        api_host: 'https://us.i.posthog.com',
+        autocapture: false,
+        capture_pageview: false,
+        capture_pageleave: false,
+        capture_performance: {
+            web_vitals: false,
+        },
+        rageclick: false,
+    })
+    window.shareKey = 'ssYFfqk2rHRPIk6PRN8vdQ';
+    window.host = 'readdy.ai';
+</script>
+</body>
+</html>
